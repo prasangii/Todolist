@@ -43,5 +43,12 @@ private HashMap<String, Task> tasks = new HashMap<String, Task>();
 		}
 		return a;
 	}
+	public void editTaskStatus(String description) {
+		if(tasks.containsKey(description)==true) {
+			if(tasks.get(description).isComplete() == true) {
+				tasks.get(description).setComplete(false);
+			}
+		}
+	}
 	
 }
