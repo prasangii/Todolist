@@ -73,6 +73,10 @@ public class ToDoListTest extends TestCase{
 	public void testEdit() {
 		Assert.assertNotNull(this.list);
 		list.addTask(a);
-		
+		String newDesc = "new Task 1";
+		String oldDesc = a.getDescription();
+		list.editTask(oldDesc, newDesc);
+		Assert.assertNull(list.getTask(oldDesc));
+		Assert.assertTrue(list.getTask(newDesc).getDescription().equals(newDesc));
 	}
 }

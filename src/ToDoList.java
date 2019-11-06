@@ -16,7 +16,7 @@ private HashMap<String, Task> tasks = new HashMap<String, Task>();
 	}
 	
 	public boolean getStatus(String description) {
-		if(tasks.containsKey(description)==true) {
+		if(tasks.containsKey(description)) {
 			return tasks.get(description).isComplete();
 		}else {
 			return false;
@@ -51,8 +51,13 @@ private HashMap<String, Task> tasks = new HashMap<String, Task>();
 	}
 	
 	public void editTask(String oldDesc , String newDesc) {
-		Task newTask = removeTask(oldDesc);
-		newTask.setDescription(newDesc);
-		addTask(newTask);
+//		if(!getStatus(oldDesc)) {
+//			return;
+//		}
+		if(getTask(oldDesc)!=null&&!getStatus(oldDesc)) {
+			Task newTask = removeTask(oldDesc);
+			newTask.setDescription(newDesc);
+			addTask(newTask);
+		}
 	}
 }
