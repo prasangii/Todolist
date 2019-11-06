@@ -80,7 +80,7 @@ public class ToDoListTest extends TestCase{
 		c.setComplete(true);
 		
 		this.list.editTaskStatus(a.getDescription());
-		//this.list.editTaskStatus(b.getDescription());
-		Assert.assertEquals(2, list.getCompletedTasks().size());
+		this.list.editTaskStatus(b.getDescription());
+		Assert.assertEquals(1, list.getCompletedTasks().size());
 	}
 }
