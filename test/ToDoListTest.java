@@ -70,6 +70,21 @@ public class ToDoListTest extends TestCase{
 	}
 	
 	@Test
+	public void testEditTaskStatus() {
+		Assert.assertNotNull(this.list);
+		this.list.addTask(this.a);
+		this.list.addTask(this.b);
+		this.list.addTask(this.c);
+		a.setComplete(true);
+		b.setComplete(true);
+		c.setComplete(true);
+		
+		this.list.editTaskStatus(a.getDescription());
+		this.list.editTaskStatus(b.getDescription());
+		Assert.assertEquals(1, list.getCompletedTasks().size());
+	}
+	
+	@Test
 	public void testEdit() {
 		Assert.assertNotNull(this.list);
 		list.addTask(a);

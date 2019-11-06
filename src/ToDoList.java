@@ -49,11 +49,15 @@ private HashMap<String, Task> tasks = new HashMap<String, Task>();
 		}
 		return a;
 	}
+	public void editTaskStatus(String description) {
+		if(tasks.containsKey(description)==true) {
+			if(tasks.get(description).isComplete() == true) {
+				tasks.get(description).setComplete(false);
+			}
+		}
+	}
 	
 	public void editTask(String oldDesc , String newDesc) {
-//		if(!getStatus(oldDesc)) {
-//			return;
-//		}
 		if(getTask(oldDesc)!=null&&!getStatus(oldDesc)) {
 			Task newTask = removeTask(oldDesc);
 			newTask.setDescription(newDesc);
