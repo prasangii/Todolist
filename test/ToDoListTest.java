@@ -83,4 +83,11 @@ public class ToDoListTest extends TestCase{
 		this.list.editTaskStatus(b.getDescription());
 		Assert.assertEquals(1, list.getCompletedTasks().size());
 	}
+	
+	@Test
+	public void testEdit() {
+		Assert.assertNotNull(this.list);
+		list.addTask(a);
+		
+	}
 }
